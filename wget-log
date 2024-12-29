@@ -1,0 +1,11 @@
+--2024-12-29 09:17:04--  https://download.opensuse.org/repositories/home:/strycore/Debian_12/Release.key
+Resolving download.opensuse.org (download.opensuse.org)... 195.135.223.226, 2a07:de40:b250:131:10:151:131:30
+Connecting to download.opensuse.org (download.opensuse.org)|195.135.223.226|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1101 (1.1K) [application/x-download]
+Saving to: ‘STDOUT’
+
+-                                                            0%[                                                                                                                                        ]       0  --.-KB/s               -                                                          100%[=======================================================================================================================================>]   1.08K  --.-KB/s    in 0s      
+
+2024-12-29 09:17:05 (118 MB/s) - written to stdout [1101/1101]
+
