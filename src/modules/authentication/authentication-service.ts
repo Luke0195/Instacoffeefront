@@ -4,8 +4,12 @@ import { service } from '../../config/index'
 
 class AuthenticationService implements Authentication {
 
-  auth(params: AuthenticationParams): Promise<User> {
-    throw new Error('Method not implemented.');
+  async auth(params: AuthenticationParams): Promise<User> {
+    const { data }  = await service.post("/authenticate", params)
+    console.log(data);
+    return {} as User;
   }
-
 }
+
+const authenticationService = new AuthenticationService();
+export {authenticationService };
