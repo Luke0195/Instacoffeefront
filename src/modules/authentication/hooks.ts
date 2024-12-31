@@ -1,9 +1,11 @@
+'use client';
 import { useState, Dispatch, SetStateAction } from 'react'
 import { useForm, UseFormReturn } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema, FormData } from './index'
 import { authenticationService } from './authentication-service'
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 interface AuthenticationHookProps {
   loading:{
@@ -16,7 +18,9 @@ interface AuthenticationHookProps {
 }
 
 export const useAuthenticationHook = ():AuthenticationHookProps => {
+  const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false);
+  
   const form = useForm<FormData>({
     resolver: yupResolver(schema()),
     defaultValues: { email: ''}
@@ -28,10 +32,12 @@ export const useAuthenticationHook = ():AuthenticationHookProps => {
       const payload = form.getValues();
       console.log(payload);
       const response = await authenticationService.auth(payload);
-      toast('Ação realizada com sucesso!');
-      console.log(response);
+      localStorage.setItem("@aircnc:user", JSON.stringify(response))
+      toast.success('Ação realizada com sucesso!');
+      router.push('/dashboard')
+
     }catch(error){
-      toast('Operação Inválida');
+      toast.error('Operação Inválida');
       console.log(error);
     }finally{
       setLoading(false)
