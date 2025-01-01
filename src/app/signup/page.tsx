@@ -7,7 +7,6 @@ import { Controller} from 'react-hook-form'
 export default function Signup(){
   const { form, onSubmit, loading:{ loading} } = useSignUpHook();
   const { handleSubmit, control, formState:{errors, isValid} } = form;
-  console.log(form.formState.errors)
   return   <div className="w-screen  h-screen p-8 flex flex-col items-center justify-center">
   <h2 className="text-2xl font-bold text-gray-300"> Criar sua Conta</h2>
   <form className='flex flex-col items-center justify-center w-96' onSubmit={handleSubmit(onSubmit)}>

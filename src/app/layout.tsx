@@ -25,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body   className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <Toaster closeButton theme="light"  richColors position="top-right"/>
       </body>
