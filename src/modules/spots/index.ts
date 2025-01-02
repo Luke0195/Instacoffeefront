@@ -1,2 +1,5 @@
 export * from './hooks'
 export * from './spot-service'
+export * from './mapper'
+export * from './interfaces'
+export * from './schema'

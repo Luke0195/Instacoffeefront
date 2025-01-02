@@ -1,5 +1,2 @@
-import { Spot } from "@app/domain/models/spot";
-
-export interface LoadSpots{
-  loadSpot():Promise<Spot[]>
-}
+export * from './addspot'
+export * from './loadspots'
