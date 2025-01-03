@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 import { mapper, spotService, FormData, schema } from './'
 import { Spot } from '@app/domain/models/spot';
 import { useEffect, useState } from 'react'
@@ -17,6 +18,7 @@ interface SpotHookProps{
 
 export const useSpotHook = ():SpotHookProps =>{
   const router = useRouter();
+  
   const [loading, setLoading] = useState<boolean>(false)
   const [spots, setSpots] = useState<Spot[]>([]);
   const form = useForm<FormData>({
@@ -45,7 +47,9 @@ export const useSpotHook = ():SpotHookProps =>{
       const payload = mapper(form.getValues())
       await spotService.add(payload);
       toast.success("Operação realizada com sucesso!")
+     
       router.push("/dashboard")
+      await loadSpots();
     }catch(error){
       toast.error('Occorreu um erro ao realizar essa ação!')
       console.log(error)
